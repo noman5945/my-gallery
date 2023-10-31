@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import Mainpicture from "./MainPicture/Mainpicture";
 import OtherPictures from "./OtherPictures/OtherPictures";
 import pic1 from "../../../assets/image-1.webp";
@@ -14,7 +14,7 @@ import pic10 from "../../../assets/image-10.jpeg";
 import pic11 from "../../../assets/image-11.jpeg";
 
 const Gallery = () => {
-  const images = [
+  const [images, setImages] = useState([
     {
       id: "01",
       src: pic1,
@@ -59,13 +59,31 @@ const Gallery = () => {
       id: "11",
       src: pic11,
     },
-  ];
+  ]);
   const featuredPic = images[0];
-  const otherpics = images.slice(1, images.length);
+  const dragItem = useRef(null);
+  const dragOver = useRef(null);
+  const handleDrag = () => {
+    //duplicate items
+    const _imageItems = [...images];
+
+    //swap items
+    const temp = _imageItems[dragItem.current];
+    _imageItems[dragItem.current] = _imageItems[dragOver.current];
+    _imageItems[dragOver.current] = temp;
+
+    //reset array
+    setImages(_imageItems);
+  };
   return (
     <div className=" m-5 items-center flex flex-col">
       <Mainpicture mainimage={featuredPic}></Mainpicture>
-      <OtherPictures pictures={otherpics}></OtherPictures>
+      <OtherPictures
+        pictures={images}
+        dragfunction={handleDrag}
+        dragItem={dragItem}
+        dragOver={dragOver}
+      ></OtherPictures>
     </div>
   );
 };
