@@ -63,6 +63,8 @@ const Gallery = () => {
   const featuredPic = images[0];
   const dragItem = useRef(null);
   const dragOver = useRef(null);
+  const IDs = [];
+
   const handleDrag = () => {
     //duplicate items
     const _imageItems = [...images];
@@ -75,11 +77,27 @@ const Gallery = () => {
     //reset array
     setImages(_imageItems);
   };
+
+  const getID = (e) => {
+    if (e.target.checked) {
+      //console.log(e.target.value);
+      IDs.push(e.target.value);
+    } else if (!e.target.checked) {
+      //console.log(e.target.value);
+      const ind = IDs.indexOf(e.target.value);
+      if (ind > -1) {
+        IDs.splice(ind, 1);
+      }
+    }
+    console.log(IDs);
+  };
+
   return (
     <div className=" m-5 items-center flex flex-col">
       <Mainpicture mainimage={featuredPic}></Mainpicture>
       <OtherPictures
         pictures={images}
+        getID={getID}
         dragfunction={handleDrag}
         dragItem={dragItem}
         dragOver={dragOver}
