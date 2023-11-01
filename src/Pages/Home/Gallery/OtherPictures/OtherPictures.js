@@ -3,7 +3,7 @@ import Picture from "../Picture/Picture";
 
 const OtherPictures = ({ pictures, dragfunction, dragItem, dragOver }) => {
   return (
-    <div className=" grid grid-cols-3">
+    <div className=" grid grid-cols-2 gap-2 h-1/2 w-1/2 lg:grid-cols-3 ">
       {pictures.map((picture, index) => {
         return (
           <Picture
