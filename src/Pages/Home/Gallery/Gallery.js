@@ -12,6 +12,7 @@ import pic8 from "../../../assets/image-8.webp";
 import pic9 from "../../../assets/image-9.webp";
 import pic10 from "../../../assets/image-10.jpeg";
 import pic11 from "../../../assets/image-11.jpeg";
+import MidSection from "./MidSection/MidSection";
 
 const Gallery = () => {
   const [images, setImages] = useState([
@@ -63,8 +64,8 @@ const Gallery = () => {
   const featuredPic = images[0];
   const dragItem = useRef(null);
   const dragOver = useRef(null);
-  const IDs = [];
-
+  const [IDs, setIDs] = useState([]);
+  //let [num, setNum] = useState(0);
   const handleDrag = () => {
     //duplicate items
     const _imageItems = [...images];
@@ -80,21 +81,18 @@ const Gallery = () => {
 
   const getID = (e) => {
     if (e.target.checked) {
-      //console.log(e.target.value);
-      IDs.push(e.target.value);
+      setIDs([...IDs, e.target.value]);
     } else if (!e.target.checked) {
-      //console.log(e.target.value);
-      const ind = IDs.indexOf(e.target.value);
-      if (ind > -1) {
-        IDs.splice(ind, 1);
-      }
+      const ind = e.target.value;
+      //console.log(ind);
+      setIDs(IDs.filter((ID) => ID !== ind));
     }
-    console.log(IDs);
   };
 
   return (
     <div className=" m-5 items-center flex flex-col">
       <Mainpicture mainimage={featuredPic}></Mainpicture>
+      <MidSection number={IDs}></MidSection>
       <OtherPictures
         pictures={images}
         getID={getID}
