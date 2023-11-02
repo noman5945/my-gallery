@@ -9,7 +9,7 @@ const OtherPictures = ({
   getID,
 }) => {
   return (
-    <div className=" grid grid-cols-2 gap-2 h-1/2 w-1/2 lg:grid-cols-3 ">
+    <div className=" grid grid-cols-2 gap-3 h-1/2 w-1/2 lg:grid-cols-3 ">
       {pictures.map((picture, index) => {
         return (
           <Picture

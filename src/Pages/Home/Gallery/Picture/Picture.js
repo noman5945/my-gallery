@@ -14,7 +14,7 @@ const Picture = ({
   );
   return (
     <div
-      className=" relative cursor-grab rounded-md shadow-md bg-fade p-1 "
+      className=" relative cursor-grab rounded-md shadow-md bg-fade p-1 hover:scale-105 transition-all ease-in-out"
       draggable
       onDragStart={(e) => (dragItem.current = index)}
       onDragEnter={(e) => (dragOver.current = index)}
