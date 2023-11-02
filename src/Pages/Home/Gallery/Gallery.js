@@ -61,6 +61,7 @@ const Gallery = () => {
       src: pic11,
     },
   ]);
+
   const featuredPic = images[0];
   const dragItem = useRef(null);
   const dragOver = useRef(null);
@@ -101,7 +102,9 @@ const Gallery = () => {
 
   return (
     <div className=" m-5 items-center flex flex-col">
+      <p className=" lg:text-3xl font-bold mt-[8%]">FEATURED</p>
       <Mainpicture mainimage={featuredPic}></Mainpicture>
+      <p className=" lg:text-3xl font-bold mt-[5%]">ALL IMAGES</p>
       <MidSection number={IDs} deletefunc={handleDelete}></MidSection>
       <OtherPictures
         pictures={images}

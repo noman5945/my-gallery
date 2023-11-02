@@ -8,6 +8,7 @@ module.exports = {
       fade: "#CCD1D1",
       cloudy_fade: "#616A6B",
       delete_red: "#E74C3C",
+      white: "#FDFEFE",
     },
     daisyui: {
       themes: [
