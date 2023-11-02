@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteIcon from "../../../SharedComponents/DeleteIcon/DeleteIcon";
 
 const MidSection = ({ number }) => {
   return (
@@ -7,8 +8,18 @@ const MidSection = ({ number }) => {
         {" "}
         <span className=" font-bold">{number.length}</span> Images Selected
       </div>
-      <div>
-        <button>Delete</button>
+      <div data-theme="mytheme">
+        {number.length >= 1 ? (
+          <button className=" btn btn-error font-bold ">
+            <DeleteIcon></DeleteIcon>
+            Delete
+          </button>
+        ) : (
+          <button className=" btn  btn-disabled font-bold ">
+            <DeleteIcon></DeleteIcon>
+            Delete
+          </button>
+        )}
       </div>
     </div>
   );
