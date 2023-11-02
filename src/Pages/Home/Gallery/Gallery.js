@@ -89,11 +89,14 @@ const Gallery = () => {
   };
 
   const handleDelete = () => {
-    //console.log(IDs);
     IDs.map((ID) => {
-      return console.log(ID);
+      const ind = images.map((image) => image.id).indexOf(ID);
+      if (ind !== -1) {
+        images.splice(ind, 1);
+      }
+      return console.log(images);
     });
-    //setIDs([]);
+    setIDs([]);
   };
 
   return (
