@@ -65,7 +65,7 @@ const Gallery = () => {
   const dragItem = useRef(null);
   const dragOver = useRef(null);
   const [IDs, setIDs] = useState([]);
-  //let [num, setNum] = useState(0);
+
   const handleDrag = () => {
     //duplicate items
     const _imageItems = [...images];
@@ -84,15 +84,22 @@ const Gallery = () => {
       setIDs([...IDs, e.target.value]);
     } else if (!e.target.checked) {
       const ind = e.target.value;
-      //console.log(ind);
       setIDs(IDs.filter((ID) => ID !== ind));
     }
+  };
+
+  const handleDelete = () => {
+    //console.log(IDs);
+    IDs.map((ID) => {
+      return console.log(ID);
+    });
+    //setIDs([]);
   };
 
   return (
     <div className=" m-5 items-center flex flex-col">
       <Mainpicture mainimage={featuredPic}></Mainpicture>
-      <MidSection number={IDs}></MidSection>
+      <MidSection number={IDs} deletefunc={handleDelete}></MidSection>
       <OtherPictures
         pictures={images}
         getID={getID}

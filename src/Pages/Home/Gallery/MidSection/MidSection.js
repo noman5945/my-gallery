@@ -1,7 +1,7 @@
 import React from "react";
 import DeleteIcon from "../../../SharedComponents/DeleteIcon/DeleteIcon";
 
-const MidSection = ({ number }) => {
+const MidSection = ({ number, deletefunc }) => {
   return (
     <div className=" flex flex-row justify-around items-center w-1/2 p-4 m-6">
       <div className=" text-2xl">
@@ -10,7 +10,7 @@ const MidSection = ({ number }) => {
       </div>
       <div data-theme="mytheme">
         {number.length >= 1 ? (
-          <button className=" btn btn-error font-bold ">
+          <button className=" btn btn-error font-bold " onClick={deletefunc}>
             <DeleteIcon></DeleteIcon>
             Delete
           </button>
