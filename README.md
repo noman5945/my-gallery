@@ -1,4 +1,4 @@
-project live site: https://app.netlify.com/sites/cerulean-monstera-f618fe/deploys/6545534d13b2101bd9cb0f93
+project live site: https://cerulean-monstera-f618fe.netlify.app
 
 # Getting Started with Create React App
 
