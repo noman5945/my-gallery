@@ -16,6 +16,7 @@ import MidSection from "./MidSection/MidSection";
 import SearchIcon from "../../SharedComponents/SearchIcon/SearchIcon";
 
 const Gallery = () => {
+  /*A demo data */
   const [images, setImages] = useState([
     {
       id: "01",
@@ -78,7 +79,14 @@ const Gallery = () => {
   const dragItem = useRef(null);
   const dragOver = useRef(null);
   const [IDs, setIDs] = useState([]);
+  let sen = "";
+  let temp = [];
 
+  /*In this project Tailwind css has been used and there are some custom themes and attributes in the config file */
+  /*In "SharedComponents" folder some shareable icons svg codes can be found and has been used in this project*/
+  /*Deletion and drag n drop sorting works well but drag animation were not implemented as I coudn't come with a solution */
+
+  /*this function handles the drag functionality. simply swapping the positions in array and thus reordring the image grid */
   const handleDrag = () => {
     //duplicate items
     const _imageItems = [...images];
@@ -92,6 +100,7 @@ const Gallery = () => {
     setImages(_imageItems);
   };
 
+  /* this function takes the ID number of all selected (tick marked) images and put them into an array */
   const getID = (e) => {
     if (e.target.checked) {
       setIDs([...IDs, e.target.value]);
@@ -101,6 +110,7 @@ const Gallery = () => {
     }
   };
 
+  // this function deletes the selected images
   const handleDelete = () => {
     IDs.map((ID) => {
       const ind = images.map((image) => image.id).indexOf(ID);
@@ -112,14 +122,36 @@ const Gallery = () => {
     setIDs([]);
   };
 
+  /*this function takes the name to search from search box */
+  const getName = (char) => {
+    sen = char;
+    //console.log(sen);
+  };
+
+  const clickSearch = () => {
+    console.log(sen);
+    const _imag = [...images];
+    _imag.map((image) => {
+      if (image.name.includes(sen.toLowerCase())) {
+        temp.push(image);
+      }
+    });
+    //console.log(temp);
+    setImages(temp);
+  };
+
   return (
     <div className=" items-center flex flex-col bg-upperback bg-no-repeat  bg-50% ">
       <div className=" w-1/2 text-center mt-[5%] flex flex-row items-center ">
-        <SearchIcon></SearchIcon>
+        <a href="#picgrid">
+          {" "}
+          <SearchIcon clicksearch={clickSearch}></SearchIcon>
+        </a>
         <input
           type="text"
           className=" bg-white border-none w-full rounded-full h-fit text-sm lg:text-2xl p-3  shadow-md"
-          placeholder="Search image by name"
+          placeholder="Search image by name(Click the search icon)"
+          onChange={(e) => getName(e.target.value)}
         ></input>
       </div>
       <p className=" lg:text-3xl font-bold mt-[8%]  text-black">FEATURED</p>
@@ -133,6 +165,11 @@ const Gallery = () => {
         dragItem={dragItem}
         dragOver={dragOver}
       ></OtherPictures>
+      <div className=" text-center m-3">
+        <p className=" text-2xl font-bold">
+          Click on image and drag on other image to reorder the images
+        </p>
+      </div>
     </div>
   );
 };
