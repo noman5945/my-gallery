@@ -12,7 +12,6 @@ import pic8 from "../../../assets/image-8.webp";
 import pic9 from "../../../assets/image-9.webp";
 import pic10 from "../../../assets/image-10.jpeg";
 import pic11 from "../../../assets/image-11.jpeg";
-import background from "../../../assets/BAcground/backGround.jpg";
 import MidSection from "./MidSection/MidSection";
 import SearchIcon from "../../SharedComponents/SearchIcon/SearchIcon";
 
@@ -21,46 +20,57 @@ const Gallery = () => {
     {
       id: "01",
       src: pic1,
+      name: "headphone-1",
     },
     {
       id: "02",
       src: pic2,
+      name: "headphone-2",
     },
     {
       id: "03",
       src: pic3,
+      name: "headphone-3",
     },
     {
       id: "04",
       src: pic4,
+      name: "headphone-4",
     },
     {
       id: "05",
       src: pic5,
+      name: "headphone-5",
     },
     {
       id: "06",
       src: pic6,
+      name: "headphone-6",
     },
     {
       id: "07",
       src: pic7,
+      name: "wrist watch-1",
     },
     {
       id: "08",
       src: pic8,
+      name: "wrist watch-2",
     },
     {
       id: "09",
       src: pic9,
+      name: "wrist watch-3",
     },
     {
       id: "10",
       src: pic10,
+      name: "Redwall bicycle and door",
     },
     {
       id: "11",
       src: pic11,
+      name: "telephone",
     },
   ]);
 
@@ -108,7 +118,7 @@ const Gallery = () => {
         <SearchIcon></SearchIcon>
         <input
           type="text"
-          className=" bg-white border-none w-full rounded-md h-fit text-sm lg:text-2xl p-2  shadow-md"
+          className=" bg-white border-none w-full rounded-full h-fit text-sm lg:text-2xl p-3  shadow-md"
           placeholder="Search image by name"
         ></input>
       </div>
