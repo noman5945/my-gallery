@@ -1,5 +1,6 @@
 import React from "react";
 import Picture from "../Picture/Picture";
+import UploadImage from "../UploadImage/UploadImage";
 
 const OtherPictures = ({
   pictures,
@@ -9,7 +10,7 @@ const OtherPictures = ({
   getID,
 }) => {
   return (
-    <div className=" grid grid-cols-2 gap-3 h-1/2 w-1/2 lg:grid-cols-3 ">
+    <div className=" grid grid-cols-2 gap-3 h-1/2 w-1/2 lg:grid-cols-3 mb-9 backdrop-blur-md  ">
       {pictures.map((picture, index) => {
         return (
           <Picture
@@ -24,6 +25,7 @@ const OtherPictures = ({
           ></Picture>
         );
       })}
+      <UploadImage></UploadImage>
     </div>
   );
 };

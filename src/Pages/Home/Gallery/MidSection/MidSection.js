@@ -12,14 +12,14 @@ const MidSection = ({ number, deletefunc }) => {
         <div data-theme="mytheme">
           {number.length >= 1 ? (
             <button
-              className=" btn btn-sm lg:btn-md btn-error text-sm lg:text-xl font-bold "
+              className=" btn btn-sm lg:btn-md btn-error text-sm lg:text-xl font-semibold "
               onClick={deletefunc}
             >
               <DeleteIcon></DeleteIcon>
               Delete
             </button>
           ) : (
-            <button className=" btn btn-sm lg:btn-md text-sm lg:text-xl  btn-disabled font-bold ">
+            <button className=" btn btn-sm lg:btn-md text-sm lg:text-xl  btn-disabled font-semibold ">
               <DeleteIcon></DeleteIcon>
               Delete
             </button>

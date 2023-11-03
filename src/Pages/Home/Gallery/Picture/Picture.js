@@ -12,9 +12,13 @@ const Picture = ({
   const [upperStyle, setUpperStyle] = useState(
     "absolute left-[85%] top-[10%] cursor-pointer opacity-0  h-[24px] w-[24px] checked:opacity-100 transition-opacity"
   );
+  const [divStyle, setDivstyle] = useState(
+    " relative cursor-grab rounded-md shadow-md bg-white border border-fade hover:scale-105 transition-all ease-in-out"
+  );
+
   return (
     <div
-      className=" relative cursor-grab rounded-md shadow-md bg-fade p-1 hover:scale-105 transition-all ease-in-out"
+      className={divStyle}
       draggable
       onDragStart={(e) => (dragItem.current = index)}
       onDragEnter={(e) => (dragOver.current = index)}

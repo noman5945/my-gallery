@@ -6,7 +6,11 @@ const MainPic = ({ source }) => {
       {source !== "undefined" ? (
         <img src={source} alt="featured"></img>
       ) : (
-        <p>Upload an Image.The first image will be the featured one</p>
+        <div className=" bg-white h-full w-full text-center">
+          <p className=" font-bold text-base lg:text-4xl p-9">
+            Upload an Image.The first image will be the featured one
+          </p>
+        </div>
       )}
     </div>
   );

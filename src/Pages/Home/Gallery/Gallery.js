@@ -12,7 +12,9 @@ import pic8 from "../../../assets/image-8.webp";
 import pic9 from "../../../assets/image-9.webp";
 import pic10 from "../../../assets/image-10.jpeg";
 import pic11 from "../../../assets/image-11.jpeg";
+import background from "../../../assets/BAcground/backGround.jpg";
 import MidSection from "./MidSection/MidSection";
+import SearchIcon from "../../SharedComponents/SearchIcon/SearchIcon";
 
 const Gallery = () => {
   const [images, setImages] = useState([
@@ -101,8 +103,16 @@ const Gallery = () => {
   };
 
   return (
-    <div className=" m-5 items-center flex flex-col">
-      <p className=" lg:text-3xl font-bold mt-[8%]">FEATURED</p>
+    <div className=" items-center flex flex-col bg-upperback bg-no-repeat  bg-50% ">
+      <div className=" w-1/2 text-center mt-[5%] flex flex-row items-center ">
+        <SearchIcon></SearchIcon>
+        <input
+          type="text"
+          className=" bg-white border-none w-full rounded-md h-fit text-sm lg:text-2xl p-2  shadow-md"
+          placeholder="Search image by name"
+        ></input>
+      </div>
+      <p className=" lg:text-3xl font-bold mt-[8%]  text-black">FEATURED</p>
       <Mainpicture mainimage={featuredPic}></Mainpicture>
       <p className=" lg:text-3xl font-bold mt-[5%]">ALL IMAGES</p>
       <MidSection number={IDs} deletefunc={handleDelete}></MidSection>
